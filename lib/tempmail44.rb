@@ -11,6 +11,7 @@
 
 #   see https://rapidapi.com/calvinloveland335703-0p6BxLYIH8f/api/temp-mail44/
 
+require 'json'
 require 'uri'
 require 'net/http'
 require 'openssl'
@@ -18,7 +19,7 @@ require 'openssl'
 
 class TempMail44
 
-  attr_reader :email
+  attr_accessor :email
 
   def initialize(host: 'temp-mail44.p.rapidapi.com', apikey: '', debug: false)
 
@@ -73,7 +74,6 @@ class TempMail44
 
     response = http.request(request)
     JSON.parse(response.read_body, symbolize_names: true)
-
 
   end
 
